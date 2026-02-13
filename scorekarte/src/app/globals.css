@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #1a3a2a;
+  --color-primary-light: #2a5a3a;
+  --color-surface: #ffffff;
+  --color-surface-off: #f8f8f6;
+  --color-accent: #c8a96e;
+  --color-accent-light: #d4bc8a;
+  --color-text-dark: #1a1a1a;
+  --color-text-light: #ffffff;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --font-sans: "Inter", "Montserrat", system-ui, sans-serif;
+  --font-heading: "Montserrat", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+/* Float label animations */
+.float-label-input:focus ~ .float-label,
+.float-label-input:not(:placeholder-shown) ~ .float-label {
+  transform: translateY(-1.5rem) scale(0.85);
+  color: var(--color-accent);
+}
+
+/* Glasmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-dark {
+  background: rgba(26, 58, 42, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Number input - hide spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Diagonal clip path */
+.diagonal-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+@media (max-width: 768px) {
+  .diagonal-clip {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+}
